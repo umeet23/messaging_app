@@ -32,7 +32,11 @@ AddChannel.propTypes = {
   setCreateType: PropTypes.func.isRequired,
   setIsCreating: PropTypes.func.isRequired,
   setIsEditing: PropTypes.func.isRequired,
-  setToggleContainer: PropTypes.func.isRequired,
+  setToggleContainer: PropTypes.func,
   type: PropTypes.string.isRequired,
+};
+
+AddChannel.defaultProps = {
+  setToggleContainer: () => {},
 };
 export default AddChannel;

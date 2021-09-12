@@ -26,11 +26,11 @@ const Auth = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { fullName, username, password, avatarURL, phoneNumber } = form;
+    const { username, password, avatarURL, phoneNumber } = form;
     const {
-      data: { token, userId, hashedPassword },
+      data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignUp ? 'signup' : 'login'}`, {
-      fullName,
+      fullName: form.fullName,
       password,
       username,
       avatarURL,

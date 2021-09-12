@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar, useChatContext } from 'stream-chat-react';
 
-const TeamChannelPreview = ({ channel, type }) => {
-  const { channel: activeChannel, client } = useChatContext();
+const TeamChannelPreview = ({
+  channel,
+  type,
+  setToggleContainer,
+  setIsCreating,
+  setIsEditing,
+}) => {
+  const { channel: activeChannel, setActiveChannel, client } = useChatContext();
 
   const ChannelPreview = () => (
     <p className="channel-preview__item">
@@ -26,6 +32,7 @@ const TeamChannelPreview = ({ channel, type }) => {
       </div>
     );
   };
+
   return (
     <div
       className={
@@ -33,7 +40,14 @@ const TeamChannelPreview = ({ channel, type }) => {
           ? 'channel-preview__wrapper__selected'
           : 'channel-preview__wrapper'
       }
-      onClick={() => {}}
+      onClick={() => {
+        setIsCreating(false);
+        setIsEditing(false);
+        setActiveChannel(channel);
+        if (setToggleContainer) {
+          setToggleContainer((prevToggleContainer) => !prevToggleContainer);
+        }
+      }}
       role="presentation"
     >
       {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
@@ -44,5 +58,12 @@ const TeamChannelPreview = ({ channel, type }) => {
 TeamChannelPreview.propTypes = {
   channel: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  setToggleContainer: PropTypes.func,
+  setIsCreating: PropTypes.func.isRequired,
+  setIsEditing: PropTypes.func.isRequired,
+};
+
+TeamChannelPreview.defaultProps = {
+  setToggleContainer: () => {},
 };
 export default TeamChannelPreview;

@@ -1824,3 +1824,8 @@ div.rta__autocomplete.str-chat__emojisearch {
     display: none;
   }
 }
+
+/* Override stream css */
+.str-chat__list .str-chat__reverse-infinite-scroll {
+  padding-top: 0;
+}

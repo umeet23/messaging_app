@@ -7,7 +7,6 @@ const ChannelSearch = () => {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   console.log(loading);
-
   const getChannels = async (text) => {
     try {
       console.log(text);

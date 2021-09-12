@@ -21,6 +21,11 @@ const CloseCreateChannel = ({ setIsCreating, setIsEditing }) => (
 );
 CloseCreateChannel.propTypes = {
   setIsCreating: PropTypes.func.isRequired,
-  setIsEditing: PropTypes.func.isRequired,
+  setIsEditing: PropTypes.func,
 };
+
+CloseCreateChannel.defaultProps = {
+  setIsEditing: () => {},
+};
+
 export default CloseCreateChannel;
