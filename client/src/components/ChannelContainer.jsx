@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Channel, useChatContext, MessageTeam } from 'stream-chat-react';
+import { Channel, MessageTeam } from 'stream-chat-react';
 import { ChannelInner, EditChannel, CreateChannel } from './channels';
 
 const ChannelContainer = ({
@@ -10,8 +10,6 @@ const ChannelContainer = ({
   setIsEditing,
   createType,
 }) => {
-  const { channel } = useChatContext();
-  console.log(channel);
   const EmptyState = () => (
     <div className="channel-empty__container">
       <p className="channel-empty__first">

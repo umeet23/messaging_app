@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import signInImage from '../assets/signup.jpg';
 
-const URL = 'http://localhost:5000/auth';
+const URL = 'https://messaging-twilio-app.herokuapp.com/auth';
 const cookies = new Cookies();
 
 const initialState = {
